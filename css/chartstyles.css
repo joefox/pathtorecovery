@@ -1,0 +1,30 @@
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: gray;
+  stroke-width: 1.5px;
+}
+
+.activeline{
+  stroke-width: 4px;
+}
+
+.label{
+  text-anchor: end;
+}
+
+.activelabel{
+    text-anchor: end;
+  font-weight: bold;
+  font-size: 13px;
+}

@@ -21,10 +21,11 @@
 
 .label{
   text-anchor: end;
+  font-size: 12px;
 }
 
 .activelabel{
     text-anchor: end;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 12px;
 }

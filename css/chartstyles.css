@@ -1,7 +1,7 @@
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #CCCCCC;
   shape-rendering: crispEdges;
 }
 
@@ -28,4 +28,22 @@
     text-anchor: end;
   font-weight: bold;
   font-size: 12px;
+}
+
+.tick{
+    font-size: 12px;
+}
+
+.tick line{
+    fill: #CCCCCC;
+    stroke: #CCCCCC;
+    stroke-dasharray: 3,4;
+}
+
+.alaska_dependence{
+    fill:#1f78b4;
+}
+
+.us_dependence{
+    fill:#e31a1c;
 }

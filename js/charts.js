@@ -158,7 +158,7 @@ function chart_dependence(){
 
         // dependence_x.domain(d3.extent(data,function(d){return parseDate(years);}));
         dependence_x.domain([parseDate("2009"),parseDate("2012")]);
-        dependence_y.domain([0,15]);
+        dependence_y.domain([0,12]);
         // dependence_y.domain([0,d3.max(data,function(d){return d3.max(d.years,function(d){return d.value;})})]);
 
      dependence_svg = d3.select(dependence_chart_div)
@@ -170,7 +170,8 @@ function chart_dependence(){
       var xAxis = d3.svg.axis()
           .scale(dependence_x)
           .ticks(d3.time.year,1)
-          .tickFormat(d3.time.format("%y"));
+          .tickFormat(d3.time.format("%Y"));
+          // .tickValues(["2009-10","2010-11","2011-12","2012-13"]);
 
       var yAxis = d3.svg.axis()
           .scale(dependence_y)
@@ -206,16 +207,11 @@ function chart_dependence(){
           "value":function(d){return d.value},
           "width":function(d){return (w/years.length)/3;},
           "x":function(d,i){return (dependence_x(parseDate(d.name)));},
-          "height":0,
-          "y":h-20
+          "height":function(d){return h-dependence_y(d.value)-20;},
+          "y":function(d){return dependence_y(d.value);}
         })
-        .transition()
-        .attr({
-          "height":function(d){return h-dependence_y(d.value);},
-          "y":function(d){return dependence_y(d.value)-20;}
-        })
-        .duration(function(d){return (h-dependence_y(d.value))*10;});
-        // .ease("elastic");
+        .on('mouseover',dependence_tip.show)
+        .on('mouseout',dependence_tip.hide);
 
 
 // LEGEND
@@ -274,7 +270,7 @@ function chart_arrests(){
 
 // initialize tooltips
     arrests_svg.call(arrest_tip);
-  
+
   //define the axes
       var xAxis = d3.svg.axis()
           .scale(arrests_x)

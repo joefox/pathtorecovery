@@ -9,6 +9,11 @@
   display: none;
 }
 
+.axis-label{
+  text-anchor: middle;
+  font-size: 12px;
+}
+
 .line {
   fill: none;
   stroke: gray;

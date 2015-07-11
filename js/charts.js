@@ -28,6 +28,16 @@ var dataset = "https:" + cdnurlpiece + "data/by_state/consumption_all_2.csv"
           .attr("width",w)
           .attr("height",h);
 
+      svg.append('text')
+        .attr({
+          "class":"axis-label",
+          "x":-h/2,
+          "y":20,
+          "transform":"rotate(-90)"
+
+        })
+        .text('gallons of ethanol per person per year');
+
   //define the axes
 
 
@@ -49,7 +59,7 @@ var dataset = "https:" + cdnurlpiece + "data/by_state/consumption_all_2.csv"
           });
 
       x.domain(d3.extent(data, function(d) { return d.year; }));
-      x.range([30,w-80]);
+      x.range([50,w-85]);
       y.domain([0,8]);
 
 
@@ -130,7 +140,7 @@ var dataset = "https:" + cdnurlpiece + "data/by_state/consumption_all_2.csv"
       var yAxisGroup = svg.append("g")
           .call(yAxis)
           .attr("class","axis")
-          .attr("transform","translate(20,0)");
+          .attr("transform","translate(50,0)");
 
 
   });
@@ -177,7 +187,7 @@ function chart_dependence(){
           .scale(dependence_y)
           .orient("left")
           .ticks(4)
-          .tickFormat(d3.format(">")); 
+          .tickFormat(function(d){return d + "%"});
 
       var xAxisGroup = dependence_svg.append("g")
           .call(xAxis)
@@ -209,9 +219,7 @@ function chart_dependence(){
           "x":function(d,i){return (dependence_x(parseDate(d.name)));},
           "height":function(d){return h-dependence_y(d.value)-20;},
           "y":function(d){return dependence_y(d.value);}
-        })
-        .on('mouseover',dependence_tip.show)
-        .on('mouseout',dependence_tip.hide);
+        });
 
 
 // LEGEND

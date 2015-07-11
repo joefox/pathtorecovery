@@ -95,6 +95,8 @@ var dataset = "https:" + cdnurlpiece + "data/by_state/consumption_all_2.csv"
         });
 
 
+
+
 // PLACE LABELS
   state.append("text")
       .attr("class","label")
@@ -142,6 +144,16 @@ var dataset = "https:" + cdnurlpiece + "data/by_state/consumption_all_2.csv"
           .attr("class","axis")
           .attr("transform","translate(50,0)");
 
+// highlight Alaska on load
+  var alaska = d3.select("#Alaska_line")
+    .attr("class","activeline")
+    .style("stroke","red");
+
+   var alaskalabel = d3.selectAll("#Alaska_label")
+      .attr("class","activelabel");
+
+
+  alaska[0][0].parentNode.parentNode.appendChild(alaska[0][0].parentNode);
 
   });
 

@@ -160,7 +160,7 @@ var dataset = "https:" + cdnurlpiece + "data/by_state/consumption_all_2.csv"
 }
 
 function chart_dependence(){
-    dataset= "https:" + rawurlpiece + "data/past-year-alcohol-dependence.csv"
+    dataset= "https:" + cdnurlpiece + "data/past-year-alcohol-dependence.csv"
     dependence_chart_div = "#dependence_chart_div"
     d3.csv(dataset, function (error, data) {
         var w = 400;
@@ -266,7 +266,7 @@ function chart_dependence(){
 
 
 function chart_arrests(){
-    dataset="https:" + rawurlpiece + "data/arrests-related-to-alcohol-2010.csv";
+    dataset="https:" + cdnurlpiece + "data/arrests-related-to-alcohol-2010.csv";
     arrests_chart_div = "#arrests_chart_div";
     d3.csv(dataset, function (error, data) {
         var w = 800;
